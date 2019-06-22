@@ -11,6 +11,7 @@ var app = express();
 
 // routers define
 var index = require('./routes/index');
+var users = require('./routes/users');
 var test = require('./routes/test');
 
 // view engine setup
@@ -46,6 +47,7 @@ app.use(function(req, res, next) {
 
 // 生产环境路径
 app.use('/index', index);
+app.use('/users', users);
 // 测试环境路径
 app.use('/test', test);
 
