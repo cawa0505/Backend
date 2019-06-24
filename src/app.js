@@ -12,6 +12,10 @@ var app = express();
 // routers define
 var index = require('./routes/index');
 var users = require('./routes/users');
+var duties = require('./routes/duties');
+var trades = require('./routes/trades');
+var photo = require('./routes/photo');
+var survey = require('./routes/survey');
 var test = require('./routes/test');
 
 // view engine setup
@@ -48,6 +52,10 @@ app.use(function(req, res, next) {
 // 生产环境路径
 app.use('/index', index);
 app.use('/users', users);
+app.use('/duties', duties);
+app.use('/trades', trades);
+app.use('/photo', photo);
+app.use('/survey', survey);
 // 测试环境路径
 app.use('/test', test);
 
@@ -57,6 +65,7 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -68,4 +77,9 @@ app.use(function(err, req, res, next) {
   res.send();
 });
 
+/*如无必要，请勿开启
+app.listen(8080,function(){
+    console.log('run server');
+})
+*/
 module.exports = app;
