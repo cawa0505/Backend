@@ -10,7 +10,6 @@ var FileStore = require('session-file-store')(session);
 var app = express();
 
 // routers define
-var index = require('./routes/index');
 var users = require('./routes/users');
 var duties = require('./routes/duties');
 var trades = require('./routes/trades');
@@ -50,7 +49,6 @@ app.use(function(req, res, next) {
 });
 
 // 生产环境路径
-app.use('/index', index);
 app.use('/users', users);
 app.use('/duties', duties);
 app.use('/trades', trades);
